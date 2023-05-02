@@ -39,7 +39,7 @@ const PING_RESPONSE: ResponseObject = {
  */
 export class PingController {
   constructor(@inject(RestBindings.Http.REQUEST) private req: Request) {}
-
+/*
   // Map to `GET /ping`
   @get('/ping')
   @response(200, PING_RESPONSE)
@@ -51,5 +51,5 @@ export class PingController {
       url: this.req.url,
       headers: Object.assign({}, this.req.headers),
     };
-  }
+  }*/
 }

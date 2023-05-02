@@ -26,6 +26,25 @@ export class ProductosController {
     public productosRepository : ProductosRepository,
   ) {}
 
+
+  @get('/productos')
+  @response(200, {
+    description: 'Array of Productos model instances',
+    content: {
+      'application/json': {
+        schema: {
+          type: 'array',
+          items: getModelSchemaRef(Productos, {includeRelations: true}),
+        },
+      },
+    },
+  })
+  async find(
+    @param.filter(Productos) filter?: Filter<Productos>,
+  ): Promise<Productos[]> {
+    return this.productosRepository.find(filter);
+  }
+
   @post('/productos')
   @response(200, {
     description: 'Productos model instance',
@@ -46,7 +65,7 @@ export class ProductosController {
   ): Promise<Productos> {
     return this.productosRepository.create(productos);
   }
-
+/*
   @get('/productos/count')
   @response(200, {
     description: 'Productos model count',
@@ -58,24 +77,8 @@ export class ProductosController {
     return this.productosRepository.count(where);
   }
 
-  @get('/productos')
-  @response(200, {
-    description: 'Array of Productos model instances',
-    content: {
-      'application/json': {
-        schema: {
-          type: 'array',
-          items: getModelSchemaRef(Productos, {includeRelations: true}),
-        },
-      },
-    },
-  })
-  async find(
-    @param.filter(Productos) filter?: Filter<Productos>,
-  ): Promise<Productos[]> {
-    return this.productosRepository.find(filter);
-  }
-
+*/
+/*
   @patch('/productos')
   @response(200, {
     description: 'Productos PATCH success count',
@@ -94,7 +97,7 @@ export class ProductosController {
   ): Promise<Count> {
     return this.productosRepository.updateAll(productos, where);
   }
-
+*/
   @get('/productos/{id}')
   @response(200, {
     description: 'Productos model instance',
@@ -110,7 +113,7 @@ export class ProductosController {
   ): Promise<Productos> {
     return this.productosRepository.findById(id, filter);
   }
-
+/*
   @patch('/productos/{id}')
   @response(204, {
     description: 'Productos PATCH success',
@@ -128,7 +131,7 @@ export class ProductosController {
   ): Promise<void> {
     await this.productosRepository.updateById(id, productos);
   }
-
+*/
   @put('/productos/{id}')
   @response(204, {
     description: 'Productos PUT success',
