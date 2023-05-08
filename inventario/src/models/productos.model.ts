@@ -3,7 +3,7 @@ import {Entity, model, property} from '@loopback/repository';
 @model()
 export class Productos extends Entity {
   @property({
-    id: true,
+    id: true, /*se ajusta para que tome como llave primaria */
     type: 'string',
   })
   id: string;
