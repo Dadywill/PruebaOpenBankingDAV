@@ -3,9 +3,10 @@ import {Entity, model, property} from '@loopback/repository';
 @model()
 export class Productos extends Entity {
   @property({
+    id: true,
     type: 'string',
   })
-  id?: string;
+  id: string;
 
   @property({
     type: 'string',

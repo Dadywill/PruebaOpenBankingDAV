@@ -63,6 +63,7 @@ export class ProductosController {
     })
     productos: Productos,
   ): Promise<Productos> {
+    console.log(productos)
     return this.productosRepository.create(productos);
   }
 /*
